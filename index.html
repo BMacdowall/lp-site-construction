@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Lava Powder | Coming Soon</title>
+<meta name="description" content="Lava Powder: a proprietary blend of spices sourced from the provinces of the Philippines. Coming soon.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4C24 18 14 26 14 40a18 18 0 0 0 36 0C50 26 40 18 32 4z' fill='%23ff4d1a'/%3E%3Cpath d='M32 24c-4 8-9 12-9 19a9 9 0 0 0 18 0c0-7-5-11-9-19z' fill='%23ffc23d'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #120806;
+    --bg-2: #1f0c07;
+    --ink: #fff3e8;
+    --muted: #d9b8a3;
+    --lava-1: #ffc23d;
+    --lava-2: #ff7a1a;
+    --lava-3: #e5260f;
+    --lava-4: #8e0f0a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    background:
+      radial-gradient(ellipse 120% 60% at 50% 115%, rgba(229,38,15,0.55), transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% 105%, rgba(255,122,26,0.45), transparent 65%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Rising embers, pure CSS */
+  .embers { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .embers span {
+    position: absolute;
+    bottom: -20px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--lava-1);
+    box-shadow: 0 0 10px 3px rgba(255,122,26,0.8);
+    opacity: 0;
+    animation: rise linear infinite;
+  }
+  .embers span:nth-child(1)  { left: 8%;  animation-duration: 9s;  animation-delay: 0s; }
+  .embers span:nth-child(2)  { left: 18%; animation-duration: 12s; animation-delay: 2s; width: 4px; height: 4px; }
+  .embers span:nth-child(3)  { left: 29%; animation-duration: 10s; animation-delay: 4s; }
+  .embers span:nth-child(4)  { left: 41%; animation-duration: 14s; animation-delay: 1s; width: 3px; height: 3px; }
+  .embers span:nth-child(5)  { left: 52%; animation-duration: 11s; animation-delay: 5s; }
+  .embers span:nth-child(6)  { left: 63%; animation-duration: 13s; animation-delay: 3s; width: 4px; height: 4px; }
+  .embers span:nth-child(7)  { left: 74%; animation-duration: 9s;  animation-delay: 6s; }
+  .embers span:nth-child(8)  { left: 85%; animation-duration: 12s; animation-delay: 2.5s; width: 3px; height: 3px; }
+  .embers span:nth-child(9)  { left: 93%; animation-duration: 10s; animation-delay: 7s; }
+  .embers span:nth-child(10) { left: 3%;  animation-duration: 15s; animation-delay: 8s; width: 3px; height: 3px; }
+  @keyframes rise {
+    0%   { transform: translate(0, 0) scale(1); opacity: 0; }
+    10%  { opacity: 1; }
+    70%  { opacity: 0.8; }
+    100% { transform: translate(30px, -105vh) scale(0.3); opacity: 0; }
+  }
+
+  main { position: relative; z-index: 1; max-width: 720px; width: 100%; }
+
+  .mark { width: 84px; height: 84px; margin: 0 auto 28px; filter: drop-shadow(0 0 24px rgba(255,122,26,0.6)); }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--lava-1);
+    border: 1px solid rgba(255,194,61,0.4);
+    border-radius: 999px;
+    padding: 8px 18px;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.2rem, 13vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, var(--lava-1) 0%, var(--lava-2) 45%, var(--lava-3) 80%, var(--lava-4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 4px 30px rgba(229,38,15,0.45));
+  }
+
+  .tagline {
+    margin: 28px auto 0;
+    max-width: 560px;
+    font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .tagline strong { color: var(--ink); font-weight: 600; }
+
+  .soon {
+    margin-top: 40px;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .soon::before, .soon::after {
+    content: "";
+    display: inline-block;
+    width: 36px; height: 2px;
+    vertical-align: middle;
+    margin: 0 14px;
+    background: linear-gradient(90deg, transparent, var(--lava-2));
+  }
+  .soon::after { background: linear-gradient(90deg, var(--lava-2), transparent); }
+
+  footer {
+    position: relative; z-index: 1;
+    margin-top: 64px;
+    font-size: 0.8rem;
+    color: rgba(217,184,163,0.6);
+    letter-spacing: 0.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .embers { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="embers" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <main>
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffc23d"/>
+          <stop offset="0.5" stop-color="#ff7a1a"/>
+          <stop offset="1" stop-color="#e5260f"/>
+        </linearGradient>
+      </defs>
+      <path d="M32 4C24 18 14 26 14 40a18 18 0 0 0 36 0C50 26 40 18 32 4z" fill="url(#flame)"/>
+      <path d="M32 24c-4 8-9 12-9 19a9 9 0 0 0 18 0c0-7-5-11-9-19z" fill="#ffe08a" opacity="0.85"/>
+    </svg>
+
+    <p class="eyebrow">From the provinces of the Philippines</p>
+
+    <h1>Lava<br>Powder</h1>
+
+    <p class="tagline">
+      A <strong>proprietary blend of spices</strong> sourced from the provinces of the Philippines,
+      made to turn up the heat on everyone's taste buds.
+    </p>
+
+    <p class="soon">Coming Soon</p>
+  </main>
+
+  <footer>&copy; Lava Powder</footer>
+</body>
+</html>
